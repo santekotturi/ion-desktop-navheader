@@ -22,25 +22,21 @@ export class NavHeaderComponent implements OnInit {
     public app: App,
     public navCtrl: NavController
   ) {
-    console.log('Hello NavHeaderComponent Component');
     this.pages = pagesProvider.getPages()
-    console.log('Pages -> ', this.pages)
 
   }
 
   ngOnInit() {
-    console.log('Current -> ', this.navCtrl.getActive())
+    // console.log('Current -> ', this.navCtrl.getActive())
     this.currentTitle = this.navCtrl.getActive().component.name
   }
 
   openPage(page) {
-    console.log('request to open page -> ', page)
-    console.log('Root nav -> ', this.app.getRootNavs()[0].id)
-    console.log('Root id -> ', this.app.getRootNavById('n4'))
+    // console.log('request to open page -> ', page)
     
     // dont go anywhere if we click on the current page name
     if (this.navCtrl.getActive().component.name === page.component.name) {
-      console.log('not going anywhere')
+      console.log('requested page is current page. not going anywhere')
     } else this.app.getRootNav().push(page.component);
 
   }
